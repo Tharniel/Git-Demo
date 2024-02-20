@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Riddler.Views.RiddlePage"
+             Title="RiddlePage">
+    <VerticalStackLayout>
+        <Label Text="Riddles" HorizontalOptions="Center"></Label>
+
+        <ListView ItemsSource="{Binding TheRiddles}" ItemSelected="OnClickedGetRiddle">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10"
+                          RowDefinitions="Auto, *"
+                          ColumnDefinitions="200, *"
+                          ColumnSpacing="20">
+                            <Label Grid.RowSpan="2"
+                               Text="{Binding title}"
+                               HeightRequest="200"></Label>
+                            <Label Grid.Column="1"
+                               Text="{Binding question}"
+                               FontSize="32"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
